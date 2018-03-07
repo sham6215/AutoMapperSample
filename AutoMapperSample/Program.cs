@@ -18,7 +18,12 @@ namespace AutoMapperSample
 
         static void DoMapping()
         {
+            Mapper.Reset();
+            /// Lazy mapping
             Mapper.Initialize(cfg => { cfg.AddProfile<AutoMapperProfile>(); });
+            /// Enforce mapping
+            Mapper.Configuration.CompileMappings();
+
 
             List<Book> books = GetBooks(10, 5);
             List<Catalogue> catalogues = GetCatalogues(5, 1);
