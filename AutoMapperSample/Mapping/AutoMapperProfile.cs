@@ -10,7 +10,7 @@ namespace AutoMapperSample.Mapping
 {
     public class AutoMapperProfile : Profile
     {
-        protected override void Configure()
+        public AutoMapperProfile()
         {
             CreateMap<Book, BookDto>()
                 .ForMember(a => a.Book_Name, b => b.MapFrom(c => c.Name))
