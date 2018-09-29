@@ -29,6 +29,22 @@ namespace AutoMapperSample.Mapping
             CreateMap<Library, LibraryDto>()
                 .ForMember(a => a.Id, b => b.Ignore());
             CreateMap<LibraryDto, Library>();
+
+            CreateMap<BookCatalogPlain, Book>()
+                .ForMember(a => a.Author, b => b.MapFrom(c => c.Author))
+                .ForMember(a => a.Name, b => b.MapFrom(c => c.BookName))
+                .ForMember(a => a.Price, b => b.MapFrom(c => c.Price));
+
+            CreateMap<List<BookCatalogPlain>, Catalogue>()
+                .ForMember(a => a.Books, b => b.MapFrom(c => c))
+                .ForMember(a => a.Books, b => b.MapFrom(c => c))
+                .ForMember(a => a.Name, b => b.MapFrom(c => c.GroupBy(p => p.CatalogName, (k) => k).First().Key));
+
+            //CreateMap<BookCatalogPlain, Book>().ForMember(a => a.);
+            //CreateMap<List<BookCatalogPlain>, Catalogue>()
+            //    .ForMember(a => a.Books, b => b.MapFrom(c => c.Name))
+            //    .ForMember(a => a.Author_Name, b => b.MapFrom(c => c.Author))
+            //    .ForMember(a => a.Book_Price, b => b.MapFrom(c => c.Price));
         }
     }
 }

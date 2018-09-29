@@ -61,6 +61,7 @@
     <Compile Include="Domain\Book.cs" />
     <Compile Include="Domain\Catalogue.cs" />
     <Compile Include="Domain\Library.cs" />
+    <Compile Include="Dto\BookCatalogPlain.cs" />
     <Compile Include="Dto\BookDto.cs" />
     <Compile Include="Dto\CatalogueDto.cs" />
     <Compile Include="Dto\LibraryDto.cs" />
